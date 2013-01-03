@@ -1,0 +1,23 @@
+%h3 Manage Role-Accesses
+
+- @accesses = Access.all
+%table.table
+  %tr
+    %th Roles / Accesses
+    - @accesses.each do |a|
+      %th.text_align_center= a.name
+  - Role.all.each do |r|
+    %tr
+      %td= r.name
+      - @accesses.each do |access|
+        %td.text_align_center= check_box_tag "#{r.id}_#{access.id}", true, r.accesses.map(&:id).include?(access.id), :onclick => "update_role_access('#{r.id}','#{access.id}')"
+
+:javascript
+  function update_role_access(role_id, access_id){
+    var flag = $('#'+role_id + '_' + access_id).is(':checked');
+    $.ajax({
+       url: "#{accesses_roles_update_path}",
+       type: 'POST',
+       data: 'role_id=' + role_id + '&access_id=' + access_id + '&associate=' + flag
+    });
+  }

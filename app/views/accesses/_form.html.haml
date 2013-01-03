@@ -1,0 +1,13 @@
+= form_for @access do |f|
+  - if @access.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@access.errors.count, "error")} prohibited this access from being saved:"
+      %ul
+        - @access.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit @access.new_record? ? 'Save' : 'Update'

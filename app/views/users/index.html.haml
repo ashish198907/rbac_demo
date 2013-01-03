@@ -1,0 +1,20 @@
+%h3 Users
+
+%table.table
+  %tr
+    %th login
+    %th Email
+    %th Action
+    %th Action
+    %th Action
+
+  - @users.each do |user|
+    %tr
+      %td= user.login
+      %td= user.email
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user) if current_user.id == user.id
+      %td= link_to 'Destroy', user, :method => :delete, :data=> { :confirm=> 'Are you sure?' } if current_user.id != user.id
+
+%br
+

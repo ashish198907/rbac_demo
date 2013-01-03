@@ -1,0 +1,23 @@
+%h3 Manage User-Roles
+
+- @roles = Role.all
+%table.table
+  %tr
+    %th Users / Roles
+    - @roles.each do |r|
+      %th.text_align_center= r.name
+  - User.all.each do |u|
+    %tr
+      %td= u.login
+      - @roles.each do |role|
+        %td.text_align_center= check_box_tag "#{u.id}_#{role.id}", true, u.roles.map(&:id).include?(role.id), :onclick => "update_user_roles('#{u.id}','#{role.id}')"
+
+:javascript
+  function update_user_roles(user_id, role_id){
+    var flag = $('#'+user_id + '_' + role_id).is(':checked');
+    $.ajax({
+       url: "#{roles_users_update_path}",
+       type: 'POST',
+       data: 'user_id=' + user_id + '&role_id=' + role_id + '&associate=' + flag
+    });
+  }
