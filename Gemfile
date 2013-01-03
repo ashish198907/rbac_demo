@@ -18,17 +18,17 @@ group :assets do
   gem 'libv8', '~> 3.11.8'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-  gem 'execjs'
-  gem 'haml'
-  gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem 'thin'
-  gem 'twitter-bootstrap-rails'
-  gem 'heroku'
 end
 
 gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
+gem 'execjs'
+gem 'haml'
+gem 'haml-rails'
+gem 'thin'
+gem 'twitter-bootstrap-rails'
+gem 'heroku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
