@@ -20,6 +20,9 @@ RbacDemo::Application.routes.draw do
   match 'roles_users' => "roles_users#roles_users_index", :as => 'roles_users'
   match 'roles_users_update' => "roles_users#update_roles", :as => 'roles_users_update'
 
+  match 'search_user_role_access' => "home#search_user_role_access", :as => 'search_user_role_access'
+  match 'submit_search' => "home#submit_search", :as => 'submit_search'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -13,3 +13,13 @@
 .text_align_center {
     text-align: center !important;
 }
+
+a.search_link {
+    color: burlyWood !important;
+    font-weight: bold;
+    padding: 10px;
+}
+
+a.search_link:hover {
+    color: white !important;
+}

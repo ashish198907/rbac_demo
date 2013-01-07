@@ -51,6 +51,8 @@
           .span3
             .well.sidebar-nav
               %h3 Sidebar
+              = link_to "Search User-Role-Access",search_user_role_access_path, :class => "search_link"
+
               %ul.nav.nav-list
                 %li.nav-header Access Visibility
                 - Access.all.each do |a|
