@@ -1,0 +1,23 @@
+%table.table
+  %tr
+    %th.text_align_center User
+    %th.text_align_center Role
+    %th.text_align_center Access
+  - if @results.present?
+    - @results.each do |r|
+      %tr
+        %td.text_align_center
+          = r.first
+        %td.text_align_center
+          - r.second.each do |s|
+            = s
+            = r.second.last == s  ? "" : ","
+            %br
+        %td.text_align_center
+          - r.last.each do |l|
+            = l
+            = r.last.last == l ? "" : ","
+            %br
+  - else
+    %tr
+      %td.text_align_center{:colspan => 3} No Record Found

@@ -1,0 +1,25 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.container_margin {
+    margin-top: 50px;
+}
+
+.text_align_center {
+    text-align: center !important;
+}
+
+a.search_link {
+    color: burlyWood !important;
+    font-weight: bold;
+    padding: 10px;
+}
+
+a.search_link:hover {
+    color: white !important;
+}

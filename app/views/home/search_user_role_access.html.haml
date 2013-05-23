@@ -1,0 +1,9 @@
+%h3 Search User - Role - Access
+%div#search_options
+  = form_tag submit_search_path, :remote => true do
+    = select_tag :user_id, options_for_select([["All Users",""]] + fetch_options(User))
+    = select_tag :role_id,  options_for_select([["All Roles",""]] + fetch_options(Role))
+    = select_tag :access_id, options_for_select([["All Accesses",""]] + fetch_options(Access))
+    = submit_tag :go
+%div#search_results
+  = render :partial => "results"

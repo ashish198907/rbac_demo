@@ -1,0 +1,20 @@
+%h3 Edit your account
+-if @user.errors.present?
+  .errors
+    %ul{:style=>"padding: 5px;"}
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+.register_form
+  = form_for @user, :url=>{:controller =>'users', :action => 'update'} do |f|
+    %table
+      %tr
+        %td= f.label :Email
+        %td= f.text_field :email
+      %tr
+        %td= f.label :Password
+        %td= f.password_field :password
+      %tr
+        %td= f.label :Confirm
+        %td= f.password_field :password_confirmation
+      %tr
+        %td= f.submit

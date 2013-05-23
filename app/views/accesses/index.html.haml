@@ -1,0 +1,19 @@
+%h3 Access
+
+%table.table
+  %tr
+    %th Name
+    %th Action
+    %th Action
+    %th Action
+
+  - @accesses.each do |access|
+    %tr
+      %td= access.name
+      %td= link_to 'Show', access
+      %td= link_to 'Edit', edit_access_path(access)
+      %td= link_to 'Destroy', access, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Add New Access', new_access_path
