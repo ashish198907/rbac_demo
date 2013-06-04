@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+
+
+.created_by_div {
+    border: 1px solid grey;
+    background: lightgray;
+    padding: 5px;
+    border-radius: 10px;
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.created_by {
+    color: blue !important;
+    font-weight: bold;
+}
+.created_by:hover {
+    color: white !important;
+    font-weight: bold;
+}
+
+div.row{
+    min-height: 300px;
+}
