@@ -59,7 +59,9 @@
                   %li= link_to a.name ,"#" if current_user.has_access?(a.id)
     
       %footer
-        %p.text_align_center &copy; ROR Team | Intelegencia
+        %p.text_align_center
+          Created by -
+          = link_to "Ashish Sharma", "http://www.linkedin.com/in/ashish198907",:target => '_blank', :class => "created_by"
     /
       Javascripts
       \==================================================
