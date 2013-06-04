@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   end
 
   def submit_search
+    #debugger
     @users = params[:user_id].present? ? User.all(:conditions => {:id => params[:user_id]}) : User.all
     @roles = params[:role_id].present? ? Role.all(:conditions => {:id => params[:role_id]}) : Role.all
     @accesses = params[:access_id].present? ? Access.all(:conditions => {:id => params[:access_id]}) : Access.all
@@ -20,7 +21,7 @@ class HomeController < ApplicationController
     @users.reject!{|u| !u.roles.map(&:id).include?(@roles.first.id)} if @roles.size == 1
     @users.reject!{|u| !u.roles.map(&:accesses).flatten.map(&:id).include?(@accesses.first.id)} if @accesses.size == 1
     @users.each do |u|
-      user_roles = u.roles.map(&:name)
+      user_roles = u.roles.map(&:name) # @roles.size == 1 ? u.roles.select{|r| r.id == @roles.first.id}.map(&:name) : u.roles.map(&:name)
       user_access = u.roles.map(&:accesses).flatten.map(&:name).uniq
       @results << [u.login,user_roles,user_access]
     end
